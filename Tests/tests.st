@@ -6,7 +6,7 @@ MAFileModel subclass: MAFileModelStub [
 
 
 
-GRPackage class extend [
+Grease.GRPackage class extend [
 
     magritteTestsModel [
 	<category: '*magritte-tests-model'>
