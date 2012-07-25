@@ -14,7 +14,7 @@ UndefinedObject extend [
 
 
 
-GRPackage class extend [
+Grease.GRPackage class extend [
 
     magritteModel [
 	<category: '*magritte-model'>
@@ -30,7 +30,7 @@ GRPackage class extend [
 
 
 
-GRPackage extend [
+Grease.GRPackage extend [
 
     magritteUrl [
 	<category: '*magritte-model'>
@@ -108,7 +108,7 @@ Collection extend [
 
 
 
-GRError subclass: MAError [
+Grease.GRError subclass: MAError [
     
     <comment: 'I represent a generic Magritte error.'>
     <category: 'Magritte-Model-Exception'>
@@ -245,7 +245,7 @@ MAError subclass: MAWriteError [
 
 
 
-GRObject subclass: MABasicObject [
+Grease.GRObject subclass: MABasicObject [
     
     <comment: nil>
     <category: 'Magritte-Model-Core'>
@@ -396,13 +396,13 @@ MABasicObject subclass: MADescriptionBuilder [
 
     register [
 	<category: 'actions'>
-	GRPlatform current magritteRegister: self
+	Grease.GRPlatform current magritteRegister: self
 	    forMethodChangeNotificationsUsing: #modified
     ]
 
     unregister [
 	<category: 'actions'>
-	GRPlatform current magritteUnregister: self
+	Grease.GRPlatform current magritteUnregister: self
 	    forMethodChangeNotificationsUsing: #modified
     ]
 ]
@@ -1125,7 +1125,7 @@ MAAccessor subclass: MANullAccessor [
     MANullAccessor class >> new [
 	<category: 'instance creation'>
 	| random uuid |
-	random := GRPlatform current newRandom.
+	random := Grease.GRPlatform current newRandom.
 	uuid := Array new: 16.
 	1 to: 16 do: [:i | uuid at: i put: (random nextInt: 256) - 1].
 	^self uuid: uuid
@@ -2871,7 +2871,7 @@ MAElementDescription subclass: MAColorDescription [
 
     MAColorDescription class >> defaultKind [
 	<category: 'accessing-defaults'>
-	^GRPlatform current magritteColorClass
+	^Grease.GRPlatform current magritteColorClass
     ]
 
     MAColorDescription class >> isAbstract [
@@ -3197,7 +3197,7 @@ MAMagnitudeDescription subclass: MATimeStampDescription [
 
     MATimeStampDescription class >> defaultKind [
 	<category: 'accessing-defaults'>
-	^GRPlatform current magritteTimeStampClass
+	^Grease.GRPlatform current magritteTimeStampClass
     ]
 
     MATimeStampDescription class >> isAbstract [
@@ -5684,7 +5684,7 @@ ArrayedCollection extend [
 
 
 
-GRPlatform extend [
+Grease.GRPlatform extend [
 
     magritteAllSubInstancesOf: aClass do: aBlock [
 	"Evaluate the aBlock for all instances of aClass and all its subclasses."
@@ -5762,7 +5762,7 @@ GRPlatform extend [
 
 
 
-ProtoObject subclass: MAProxyObject [
+Object subclass: MAProxyObject [
     | realSubject |
     
     <comment: 'I represent an abstract proxy object, to be refined by my subclasses.'>
@@ -5833,7 +5833,7 @@ MAProxyObject subclass: MADynamicObject [
 
     realSubject [
 	<category: 'accessing'>
-	^GRPlatform current magritteEvaluate: super realSubject
+	^Grease.GRPlatform current magritteEvaluate: super realSubject
 	    onUnhandledErrorDo: [:err | err return: nil]
     ]
 ]
