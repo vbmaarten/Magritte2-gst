@@ -1,0 +1,22 @@
+<package>
+  <name>Magritte2</name>
+  <namespace>Magritte2</namespace>
+  <prereq>Grease</prereq>
+  <prereq>SUnit</prereq>
+
+  <test>
+      <filein>Tests/tests.st</filein>
+      <sunit>
+          Magritte2.MAAdaptiveModelTest
+          Magritte2.MAConditionTest
+          Magritte2.MADescriptionBuilderTest
+          Magritte2.MADynamicObjectTest
+          Magritte2.MAExtensionsTest
+          Magritte2.MAFileModelTest
+          Magritte2.MAObjectTest
+          Magritte2.MATableModelTest
+      </sunit>
+  </test>
+
+  <filein>magritte2.st</filein>
+</package>
