@@ -5,7 +5,8 @@
   <prereq>SUnit</prereq>
 
   <test>
-      <filein>Tests/tests.st</filein>
+      <filein>Tests/magritte-model-tests.st</filein>
+      <filein>Tests/magritte-pharo-model-tests.st</filein>
       <sunit>
           Magritte2.MAAdaptiveModelTest
           Magritte2.MAConditionTest
@@ -13,10 +14,65 @@
           Magritte2.MADynamicObjectTest
           Magritte2.MAExtensionsTest
           Magritte2.MAFileModelTest
+          Magritte2.MAMemoryFileModelTest
           Magritte2.MAObjectTest
+          Magritte2.MAAccessorTest
+          Magritte2.MADelegatorAccessorTest
+          Magritte2.MAChainAccessorTest
+          Magritte2.MADictionaryAccessorTest
+          Magritte2.MAIdentityAccessorTest
+          Magritte2.MANullAccessorTest
+          Magritte2.MAPluggableAccessorTest
+          Magritte2.MASelectorAccessorTest
+          Magritte2.MAVariableAccessorTest
+          Magritte2.MADescriptionTest
+          Magritte2.MAContainerTest
+          Magritte2.MAPriorityContainerTest
+          Magritte2.MAElementDescriptionTest
+          Magritte2.MABooleanDescriptionTest
+          Magritte2.MAClassDescriptionTest
+          Magritte2.MAColorDescriptionTest
+          Magritte2.MAMagnitudeDescriptionTest
+          Magritte2.MADateAndTimeDescriptionTest
+          Magritte2.MADateDescriptionTest
+          Magritte2.MADurationDescriptionTest
+          Magritte2.MANumberDescriptionTest
+          Magritte2.MATimeDescriptionTest
+          Magritte2.MATimeStampDescriptionTest
+          Magritte2.MAReferenceDescriptionTest
+          Magritte2.MAOptionDescriptionTest
+          Magritte2.MAMultipleOptionDescriptionTest
+          Magritte2.MASingleOptionDescriptionTest
+          Magritte2.MARelationDescriptionTest
+          Magritte2.MAToManyRelationDescriptionTest
+          Magritte2.MAToManyScalarRelationDescriptionTest
+          Magritte2.MAToOneRelationDescriptionTest
+          Magritte2.MATableDescriptionTest
+          Magritte2.MAStringDescriptionTest
+          Magritte2.MATokenDescriptionTest
+          Magritte2.MAMemoDescriptionTest
+          Magritte2.MAPasswordDescriptionTest
+          Magritte2.MASymbolDescriptionTest
+          Magritte2.MAMementoTest
+          Magritte2.MACachedMementoTest
+          Magritte2.MACheckedMementoTest
+          Magritte2.MAStraitMementoTest
           Magritte2.MATableModelTest
+
       </sunit>
   </test>
 
+  <file>fixes.st</file>
+  <file>SystemEventManager.st</file>
+  <file>EventMultiplexer.st</file>
+  <file>SystemChangeNotifier.st</file>
+  <file>magritte2.st</file>
+  <file>magritte2-pharo.st</file>
+
+  <filein>fixes.st</filein>
+  <filein>SystemEventManager.st</filein>
+  <filein>EventMultiplexer.st</filein>
+  <filein>SystemChangeNotifier.st</filein>
   <filein>magritte2.st</filein>
+  <filein>magritte2-pharo.st</filein>
 </package>

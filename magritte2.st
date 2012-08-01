@@ -1,8 +1,10 @@
+PackageLoader fileInPackage: 'Grease'.
+
 UndefinedObject extend [
 
     asAccessor [
 	<category: '*magritte-model-converting'>
-	^MANullAccessor new
+	^Magritte2.MANullAccessor new
     ]
 
     label [
@@ -396,8 +398,8 @@ MABasicObject subclass: MADescriptionBuilder [
 
     register [
 	<category: 'actions'>
-	Grease.GRPlatform current magritteRegister: self
-	    forMethodChangeNotificationsUsing: #modified
+	"Grease.GRPlatform current magritteRegister: self
+	    forMethodChangeNotificationsUsing: #modified"
     ]
 
     unregister [
@@ -5604,7 +5606,7 @@ SequenceableCollection extend [
 
     asAccessor [
 	<category: '*magritte-model'>
-	^MAChainAccessor accessors: self
+	^Magritte2.MAChainAccessor accessors: self
     ]
 
     moveDown: anObject [
@@ -5635,7 +5637,7 @@ Symbol extend [
 
     asAccessor [
 	<category: '*magritte-model-converting'>
-	^MASelectorAccessor selector: self
+	^Magritte2.MASelectorAccessor selector: self
     ]
 
     isDescriptionDefinition [
@@ -5846,7 +5848,7 @@ Class extend [
 	"Return the default description container."
 
 	<category: '*magritte-model-configuration'>
-	^(MAPriorityContainer new)
+	^(Magritte2.MAPriorityContainer new)
 	    label: self label;
 	    yourself
     ]
@@ -5875,7 +5877,7 @@ Object class extend [
 
     description [
 	<category: '*magritte-model-accessing'>
-	^MADescriptionBuilder for: self
+	^Magritte2.MADescriptionBuilder for: self
     ]
 
 ]
@@ -5915,7 +5917,7 @@ Object extend [
 	"Return a class to be used to remember or cache the receiver, namely a memento object."
 
 	<category: '*magritte-model-accessing'>
-	^MACheckedMemento
+	^Magritte2.MACheckedMemento
     ]
 
     readUsing: aDescription [

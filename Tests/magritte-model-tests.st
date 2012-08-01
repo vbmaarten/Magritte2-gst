@@ -617,7 +617,7 @@ TestCase subclass: MAFileModelTest [
 	<category: 'running'>
 	model finalize
     ]
-
+    
     testComparing [
 	<category: 'tests'>
 	| other |
@@ -642,10 +642,10 @@ TestCase subclass: MAFileModelTest [
 		    with: 2
 		    with: 3).
 	self 
-	    assert: model contents = (ByteArray 
+	    assert: model contents = ((ByteArray 
 			    with: 1
 			    with: 2
-			    with: 3).
+			    with: 3)).
 	self assert: model filesize = 3
     ]
 
@@ -657,7 +657,7 @@ TestCase subclass: MAFileModelTest [
 	self assert: model filename = 'test.txt'.
 	self assert: model extension = 'txt'
     ]
-
+    
     testIsEmpty [
 	<category: 'tests'>
 	self assert: model isEmpty.
@@ -769,13 +769,13 @@ TestCase subclass: MAObjectTest [
 	| thisName thisClass thisCategory parentClass |
 	thisName := (aClass name , 'Test') asSymbol.
 	(thisName beginsWithSubCollection: 'MA') ifFalse: [^self].
-	thisClass := GRPlatform current magritteClassNamed: thisName.
+	thisClass := Grease.GRPlatform current magritteClassNamed: thisName.
 	thisCategory := 'Magritte-Tests-Model-' 
 		    , (aClass category copyAfterLast: $-).
 	parentClass := self = thisClass 
 		    ifTrue: [self superclass]
 		    ifFalse: 
-			[GRPlatform current 
+			[Grease.GRPlatform current 
 			    magritteClassNamed: (aClass superclass name , 'Test') asSymbol].
 	thisClass := parentClass 
 		    subclass: thisName
@@ -991,7 +991,7 @@ MAObjectTest subclass: MAAccessorTest [
     testStore [
 	<category: 'tests-identity'>
 	| evaluator |
-	evaluator := GRPlatform current 
+	evaluator := Grease.GRPlatform current 
 		    magritteEvaluatorClassFor: self actualClass.
 	self 
 	    assert: (evaluator evaluate: self accessor storeString) = self accessor
@@ -2745,7 +2745,7 @@ MAElementDescriptionTest subclass: MAColorDescriptionTest [
 
     includedInstance [
 	<category: 'private'>
-	^GRPlatform current magritteColorClass blue
+	^Grease.GRPlatform current magritteColorClass blue
     ]
 ]
 
@@ -3245,7 +3245,7 @@ MAMagnitudeDescriptionTest subclass: MATimeStampDescriptionTest [
 
     excludedInstance [
 	<category: 'private'>
-	^GRPlatform current magritteTimeStampClass 
+	^Grease.GRPlatform current magritteTimeStampClass 
 	    year: 1980
 	    month: 1
 	    day: 11
@@ -3256,7 +3256,7 @@ MAMagnitudeDescriptionTest subclass: MATimeStampDescriptionTest [
 
     includedInstance [
 	<category: 'private'>
-	^GRPlatform current magritteTimeStampClass 
+	^Grease.GRPlatform current magritteTimeStampClass 
 	    year: 1980
 	    month: 6
 	    day: 11
@@ -3267,7 +3267,7 @@ MAMagnitudeDescriptionTest subclass: MATimeStampDescriptionTest [
 
     maxInstance [
 	<category: 'private'>
-	^GRPlatform current magritteTimeStampClass 
+	^Grease.GRPlatform current magritteTimeStampClass 
 	    year: 1980
 	    month: 6
 	    day: 12
@@ -3278,7 +3278,7 @@ MAMagnitudeDescriptionTest subclass: MATimeStampDescriptionTest [
 
     minInstance [
 	<category: 'private'>
-	^GRPlatform current magritteTimeStampClass 
+	^Grease.GRPlatform current magritteTimeStampClass 
 	    year: 1980
 	    month: 6
 	    day: 10
