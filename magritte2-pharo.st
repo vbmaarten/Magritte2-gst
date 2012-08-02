@@ -262,7 +262,7 @@ Grease.GRGSTPlatform extend [
 	"Return a Color class"
 
 	<category: '*magritte-pharo-model'>
-	^Color
+	^Magritte2.Color
     ]
 
     magritteEvaluate: aBlock onUnhandledErrorDo: errorBlock [

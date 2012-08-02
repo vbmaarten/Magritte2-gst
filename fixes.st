@@ -69,16 +69,17 @@ Object subclass: FileDirectory [
     ]
 
     entries [
-        | array |
-        array := Array new: (dir filesMatching: '*') size.
-        (dir filesMatching: '*') doWithIndex: [ :file :i |
+        | array dirContent |
+        dirContent := dir filesMatching: '*'.
+        array := Array new: dirContent size.
+        dirContent doWithIndex: [ :file :i |
             | description |
             description := Array new: 5.
             description at: 1 put: file name. 
-            description at: 1 put: file creationTime. 
-            description at: 1 put: file lastModifyTime. 
-            description at: 1 put: file mode. 
-            description at: 1 put: file size. 
+            description at: 2 put: file creationTime. 
+            description at: 3 put: file lastModifyTime. 
+            description at: 4 put: file mode. 
+            description at: 5 put: file size. 
 
             array at: i put: description.
         ]   
@@ -109,7 +110,7 @@ File extend [
         self isDirectory ifTrue: [
                 (self filesMatching: '*') do: [ :file |
                     "to exclude /. and /.."
-                    (self name size >= file name size) ifFalse: [
+                    (file = self or: [file = self parent]) ifFalse: [
                         file recursiveDelete.
                     ].
                 ].
@@ -120,3 +121,57 @@ File extend [
     ]
 ]
 
+Object subclass: Color [
+    | r g b a |
+
+    Color class >> blue [
+        ^self r: 0 g: 0 b: 255.
+    ]
+
+    Color class >> green [
+        ^self r: 0 g: 255 b: 0.
+    ]
+
+    Color class >> red [
+        ^self r: 255 g: 0 b: 0.
+    ]
+   
+    Color class >> r: red g: green b: blue [
+        | color |
+        color := self new.
+        color r: red g: green b: blue.
+        ^color.
+    ]
+
+    Color class >> fromString: aString [
+        "Should accept strings such as:
+        white
+        blue
+        #FF0000
+        Empty string = white    
+        "   
+
+        ^Color r: 255 g: 255 b:255.
+    ]
+
+
+    r: red g: green b: blue [
+        r := red.
+        g := green.
+        b := blue.
+        a := 255.
+    ]
+
+    red [
+        ^r.
+    ]
+
+    green [
+        ^g.
+    ]
+
+    blue [
+        ^b.
+    ]
+
+]
