@@ -184,6 +184,10 @@ String extend [
         ^(self indexOfRegex: aString) first > 0.
     ]
 
+    includesSubstring: aString caseSensitive: caseSensitive [
+        ^true.
+    ]
+
     caseInsensitiveLessOrEqual: aString [
         ^true.
     ]
@@ -203,5 +207,16 @@ Collection extend [
     intersection: aCollection [
         "Code coppied from Squeak"
         self select: [:each | aCollection includes: each]
+    ]
+]
+
+Time extend [
+    print24: hr24 showSeconds: showSeconds on: aStream[
+        
+    ]
+]
+
+Interval extend [
+    reduce: reduce [
     ]
 ]
