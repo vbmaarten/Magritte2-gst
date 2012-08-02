@@ -178,3 +178,13 @@ Object subclass: Color [
 
 DateTime subclass: DateAndTime [
 ]
+
+String extend [
+    includesSubString: aString [
+        ^(self indexOfRegex: aString) first > 0.
+    ]
+
+    caseInsensitiveLessOrEqual: aString [
+        ^true.
+    ]
+]
