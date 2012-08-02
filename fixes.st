@@ -198,3 +198,10 @@ DateTime subclass: TimeStamp [
         ^self asTime
     ]
 ]
+
+Collection extend [
+    intersection: aCollection [
+        "Code coppied from Squeak"
+        self select: [:each | aCollection includes: each]
+    ]
+]
