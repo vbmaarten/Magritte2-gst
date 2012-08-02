@@ -311,7 +311,7 @@ Grease.GRGSTPlatform extend [
 	 to its own package in order to resolve."
 
 	<category: '*magritte-pharo-model'>
-	^TimeStamp
+	^Magritte2.TimeStamp
     ]
 
     magritteTimeStampIfAbsent: absentBlock [
@@ -319,7 +319,7 @@ Grease.GRGSTPlatform extend [
 	 return the result of evaluating absentBlock."
 
 	<category: '*magritte-pharo-model'>
-	^TimeStamp
+	^Magritte2.TimeStamp
     ]
 
     magritteUniqueObject [

@@ -188,3 +188,13 @@ String extend [
         ^true.
     ]
 ]
+
+DateTime subclass: TimeStamp [
+    date [
+        ^self asDate
+    ]
+
+    time [
+        ^self asTime
+    ]
+]
