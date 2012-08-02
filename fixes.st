@@ -175,3 +175,6 @@ Object subclass: Color [
     ]
 
 ]
+
+DateTime subclass: DateAndTime [
+]
