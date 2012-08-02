@@ -273,7 +273,7 @@ Grease.GRGSTPlatform extend [
 	 passing errorBlock directly in as a parameter."
 
 	<category: '*magritte-pharo-model'>
-	^aBlock on: UnhandledError do: [:error | errorBlock value: error]
+	^aBlock on: Error do: [:error | errorBlock value: error]
     ]
 
     magritteEvaluatorClassFor: aClass [
