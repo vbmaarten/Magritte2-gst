@@ -121,61 +121,6 @@ File extend [
     ]
 ]
 
-Object subclass: Color [
-    | r g b a |
-
-    Color class >> blue [
-        ^self r: 0 g: 0 b: 255.
-    ]
-
-    Color class >> green [
-        ^self r: 0 g: 255 b: 0.
-    ]
-
-    Color class >> red [
-        ^self r: 255 g: 0 b: 0.
-    ]
-   
-    Color class >> r: red g: green b: blue [
-        | color |
-        color := self new.
-        color r: red g: green b: blue.
-        ^color.
-    ]
-
-    Color class >> fromString: aString [
-        "Should accept strings such as:
-        white
-        blue
-        #FF0000
-        Empty string = white    
-        "   
-
-        ^Color r: 255 g: 255 b:255.
-    ]
-
-
-    r: red g: green b: blue [
-        r := red.
-        g := green.
-        b := blue.
-        a := 255.
-    ]
-
-    red [
-        ^r.
-    ]
-
-    green [
-        ^g.
-    ]
-
-    blue [
-        ^b.
-    ]
-
-]
-
 DateTime subclass: DateAndTime [
 ]
 
@@ -206,7 +151,7 @@ DateTime subclass: TimeStamp [
 Collection extend [
     intersection: aCollection [
         "Code coppied from Squeak"
-        self select: [:each | aCollection includes: each]
+        ^self select: [:each | aCollection includes: each]
     ]
 ]
 
@@ -218,5 +163,16 @@ Time extend [
 
 Interval extend [
     reduce: reduce [
+    ]
+]
+
+Behavior extend [
+    "Code taken from StartCompiler.st"
+    evaluatorClass [
+        ^STInST.GSTFileInParser
+    ]
+
+    parserClass [
+        ^STInST.RBBracketedMethodParser
     ]
 ]
