@@ -5807,7 +5807,7 @@ MAProxyObject subclass: MADynamicObject [
     realSubject [
 	<category: 'accessing'>
 	^Grease.GRPlatform current magritteEvaluate: super realSubject
-	    onUnhandledErrorDo: [:err | err return: nil]
+	    onUnhandledErrorDo: [:err | err signal]
     ]
 
     yourself [
