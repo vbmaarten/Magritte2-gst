@@ -5813,6 +5813,15 @@ MAProxyObject subclass: MADynamicObject [
     yourself [
         ^self realSubject
     ]
+
+    = arg [
+        "This is a hack. It does not work when this object is on the right side of the =."
+        ^self realSubject = arg
+    ]
+
+    size [
+        ^self realSubject size.
+    ]
 ]
 
 
