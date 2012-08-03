@@ -2864,35 +2864,6 @@ MAElementDescription subclass: MAClassDescription [
     ]
 ]
 
-
-
-MAElementDescription subclass: MAColorDescription [
-    
-    <comment: 'I am a description of colors, possible values are instances of ==Color==. My visual representation could be a color-chooser.'>
-    <category: 'Magritte-Model-Description'>
-
-    MAColorDescription class >> defaultKind [
-	<category: 'accessing-defaults'>
-	^Grease.GRPlatform current magritteColorClass
-    ]
-
-    MAColorDescription class >> isAbstract [
-	<category: 'testing'>
-	^false
-    ]
-
-    MAColorDescription class >> label [
-	<category: 'accessing'>
-	^'Color'
-    ]
-
-    acceptMagritte: aVisitor [
-	<category: 'visiting'>
-	aVisitor visitColorDescription: self
-    ]
-]
-
-
 
 MAElementDescription subclass: MAFileDescription [
     
