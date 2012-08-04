@@ -159,9 +159,36 @@ Collection extend [
     ]
 ]
 
+String extend [
+    padLeft: aCharacter size: size [
+        | result |
+        result := self copy.
+        (self size < size) ifTrue: [
+            1 to: (size - self size) do: [ :i | 
+                result := (aCharacter asString, result).
+            ].
+        ].
+        ^result.
+    ]
+]
+
 Time extend [
-    print24: hr24 showSeconds: showSeconds on: aStream[
-        
+    print24: print24 showSeconds: showSeconds on: aStream[
+        | result hour |
+        print24 ifTrue: [
+            result := (self hours asString padLeft: $0 size: 2)
+        ] ifFalse: [
+            hour := self hours.
+            (hour > 12) ifTrue: [ hour := hour - 12 ].
+            result := (hour asString padLeft: $0 size: 2).
+        ].
+
+        result := result, ':',(self minutes asString padLeft: $0 size: 2).
+        showSeconds ifTrue: [
+            result := (result, ':',(self seconds asString padLeft: $0 size: 2)).
+        ].
+
+        result print: self on: aStream.
     ]
 ]
 
