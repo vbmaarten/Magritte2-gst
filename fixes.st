@@ -138,7 +138,7 @@ String extend [
     ]
 
     caseInsensitiveLessOrEqual: aString [
-        ^true.
+        ^((self caseInsensitiveCompareTo: aString) <= 0)
     ]
 ]
 
