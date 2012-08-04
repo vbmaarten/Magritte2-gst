@@ -161,8 +161,17 @@ Time extend [
     ]
 ]
 
-Interval extend [
-    reduce: reduce [
+Collection extend [
+    reduce: aBlock [
+        | result |
+        result := self first. 
+        (self size > 1) ifTrue: [
+            2 to: (self size) do: [ :i |
+               result := aBlock value: result value: (self at: i). 
+            ]
+        ].
+
+        ^result
     ]
 ]
 
