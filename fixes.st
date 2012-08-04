@@ -126,11 +126,15 @@ DateTime subclass: DateAndTime [
 
 String extend [
     includesSubString: aString [
-        ^(self indexOfRegex: aString) first > 0.
+        ^(self indexOfRegex: aString) size > 0.
     ]
 
     includesSubstring: aString caseSensitive: caseSensitive [
-        ^true.
+        caseSensitive ifTrue: [
+            ^self includesSubString: aString.
+        ] ifFalse: [
+            ^self asLowercase includesSubString: aString asLowercase.
+        ].
     ]
 
     caseInsensitiveLessOrEqual: aString [
